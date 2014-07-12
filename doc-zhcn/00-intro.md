@@ -6,7 +6,6 @@ project for you.
 
 ## Dependency management
 
-Composer is not a package manager. Yes, it deals with "packages" or libraries, but
 it manages them on a per-project basis, installing them in a directory (e.g. `vendor`)
 inside your project. By default it will never install anything globally. Thus,
 it is a dependency manager.

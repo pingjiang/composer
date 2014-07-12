@@ -1,6 +1,6 @@
-# Basic usage
+# 基本使用方法
 
-## Installation
+## 安装
 
 To install Composer, you just need to download the `composer.phar` executable.
 
@@ -25,7 +25,7 @@ This should give you a list of available commands.
 > curl -sS https://getcomposer.org/installer | php -- --help
 > ```
 
-## `composer.json`: Project Setup
+## `composer.json`: 设置项目
 
 To start using Composer in your project, all you need is a `composer.json`
 file. This file describes the dependencies of your project and may contain
@@ -34,7 +34,7 @@ other metadata as well.
 The [JSON format](http://json.org/) is quite easy to write. It allows you to
 define nested structures.
 
-### The `require` Key
+### `require` 字段
 
 The first (and often only) thing you specify in `composer.json` is the
 `require` key. You're simply telling Composer which packages your project
@@ -51,7 +51,7 @@ depends on.
 As you can see, `require` takes an object that maps **package names** (e.g. `monolog/monolog`)
 to **package versions** (e.g. `1.0.*`).
 
-### Package Names
+### 包名称
 
 The package name consists of a vendor name and the project's name. Often these
 will be identical - the vendor name just exists to prevent naming clashes. It allows
@@ -64,7 +64,7 @@ allows adding more related projects under the same namespace later on. If you
 are maintaining a library, this would make it really easy to split it up into
 smaller decoupled parts.
 
-### Package Versions
+### 包版本号
 
 In the previous example we were requiring version `1.0.*` of monolog. This
 means any version in the `1.0` development branch. It would match `1.0.0`,
@@ -94,7 +94,7 @@ breaks until 2.0, that works well. Another way of looking at it is that using
 > like `~1.2` would not install it. As said above `~1.2` only means the `.2`
 > can change but the `1.` part is fixed.
 
-### Stability
+### 稳定性
 
 By default only stable releases are taken into consideration. If you would like
 to also get RC, beta, alpha or dev versions of your dependencies you can do
@@ -102,7 +102,7 @@ so using [stability flags](04-schema.md#package-links). To change that for all
 packages instead of doing per dependency you can also use the
 [minimum-stability](04-schema.md#minimum-stability) setting.
 
-## Installing Dependencies
+## 安装依赖
 
 To fetch the defined dependencies into your local project, just run the
 `install` command of `composer.phar`.
@@ -123,7 +123,7 @@ In case of monolog it will put it into `vendor/monolog/monolog`.
 Another thing that the `install` command does is it adds a `composer.lock`
 file into your project root.
 
-## `composer.lock` - The Lock File
+## `composer.lock` - 锁文件
 
 After installing the dependencies, Composer writes the list of the exact
 versions it installed into a `composer.lock` file. This locks the project
@@ -164,7 +164,7 @@ php composer.phar update monolog/monolog [...]
 > **Note:** For libraries it is not necessarily recommended to commit the lock file,
 > see also: [Libraries - Lock file](02-libraries.md#lock-file).
 
-## Packagist
+## Packagist仓库
 
 [Packagist](https://packagist.org/) is the main Composer repository. A Composer
 repository is basically a package source: a place where you can get packages
@@ -179,7 +179,7 @@ Any open source project using Composer should publish their packages on
 packagist. A library doesn't need to be on packagist to be used by Composer,
 but it makes life quite a bit simpler.
 
-## Autoloading
+## 自动加载
 
 For libraries that specify autoload information, Composer generates a
 `vendor/autoload.php` file. You can simply include this file and you
@@ -238,4 +238,4 @@ classes to be autoloaded even if they do not conform to PSR-4. See the
 that one, you can just include `vendor/composer/autoload_*.php` files,
 which return associative arrays allowing you to configure your own autoloader.
 
-&larr; [Intro](00-intro.md)  |  [Libraries](02-libraries.md) &rarr;
+&larr; [简介](00-intro.md)  |  [库](02-libraries.md) &rarr;

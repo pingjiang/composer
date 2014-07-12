@@ -1,14 +1,14 @@
-# Repositories
+# 仓库
 
 This chapter will explain the concept of packages and repositories, what kinds
 of repositories are available, and how they work.
 
-## Concepts
+## 概念
 
 Before we look at the different types of repositories that exist, we need to
 understand some of the basic concepts that composer is built on.
 
-### Package
+### 包
 
 Composer is a dependency manager. It installs packages locally. A package is
 essentially just a directory containing something. In this case it is PHP
@@ -36,7 +36,7 @@ Packages can supply either of these, or even both. Depending on certain
 factors, such as user-supplied options and stability of the package, one will
 be preferred.
 
-### Repository
+### 仓库
 
 A repository is a package source. It's a list of packages/versions. Composer
 will look in all your repositories to find the packages your project requires.
@@ -49,7 +49,7 @@ defined in your dependencies will not be loaded. Read the
 [FAQ entry](faqs/why-can't-composer-load-repositories-recursively.md) if you
 want to learn why.
 
-## Types
+## 类型
 
 ### Composer
 
@@ -62,7 +62,7 @@ In case of packagist, that file is located at `/packages.json`, so the URL of
 the repository would be `packagist.org`. For `example.org/packages.json` the
 repository URL would be `example.org`.
 
-#### packages
+#### 包
 
 The only required field is `packages`. The JSON structure is as follows:
 
@@ -267,7 +267,7 @@ If other dependencies rely on the package you forked, it is possible to
 inline-alias it so that it matches a constraint that it otherwise would not.
 For more information [see the aliases article](articles/aliases.md).
 
-#### Using private repositories
+#### 使用私有仓库
 
 Exactly the same solution allows you to work with your private repositories at
 GitHub and BitBucket:
@@ -315,7 +315,7 @@ repository as it would with any other git repository instead of using the
 GitHub API. But unlike using the `git` driver directly, composer will still
 attempt to use github's zip files.
 
-#### Subversion Options
+#### Subversion 选项
 
 Since Subversion has no native concept of branches and tags, Composer assumes
 by default that code is located in `$url/trunk`, `$url/branches` and
@@ -374,7 +374,7 @@ In this case the short name of the channel is `pear2`, so the
 > **Note:** The `pear` repository requires doing quite a few requests per
 > package, so this may considerably slow down the installation process.
 
-#### Custom vendor alias
+#### 自定义 vendor 别名
 
 It is possible to alias PEAR channel packages with a custom vendor name.
 
@@ -429,7 +429,7 @@ and `IntermediatePackage` from a Github repository:
 }
 ```
 
-### Package
+### 包
 
 If you want to use a project that does not support composer through any of the
 means above, you still can define the package yourself by using a `package`
@@ -583,4 +583,4 @@ You can disable the default Packagist repository by adding this to your
 }
 ```
 
-&larr; [Schema](04-schema.md)  |  [Community](06-community.md) &rarr;
+&larr; [Schema](04-schema.md)  |  [社区](06-community.md) &rarr;

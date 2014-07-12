@@ -1,4 +1,4 @@
-# Command-line interface
+# 命令行接口
 
 You've already learned how to use the command-line interface to do some
 things. This chapter documents all the available commands.
@@ -7,7 +7,7 @@ To get help from the command-line, simply call `composer` or `composer list`
 to see the complete list of commands, then `--help` combined with any of those
 can give you more information.
 
-## Global Options
+## 全局选项
 
 The following options are available with every command:
 
@@ -21,7 +21,7 @@ The following options are available with every command:
 * **--no-ansi:** Disable ANSI output.
 * **--version (-V):** Display this application version.
 
-## Process Exit Codes
+## 处理返回码
 
 * **0:** OK
 * **1:** Generic/unknown error code
@@ -40,7 +40,7 @@ while using some smart defaults.
 php composer.phar init
 ```
 
-### Options
+### 选项
 
 * **--name:** Name of the package.
 * **--description:** Description of the package.
@@ -67,7 +67,7 @@ everyone using the library will get the same versions of the dependencies.
 If there is no `composer.lock` file, composer will create one after dependency
 resolution.
 
-### Options
+### 选项
 
 * **--prefer-source:** There are two ways of downloading a package: `source`
   and `dist`. For stable versions composer will use the `dist` by default.
@@ -117,7 +117,7 @@ You can also use wildcards to update a bunch of packages at once:
 php composer.phar update vendor/*
 ```
 
-### Options
+### 选项
 
 * **--prefer-source:** Install packages from `source` when available.
 * **--prefer-dist:** Install packages from `dist` when available.
@@ -155,7 +155,7 @@ to the command.
 php composer.phar require vendor/package:2.* vendor/package2:dev-master
 ```
 
-### Options
+### 选项
 
 * **--prefer-source:** Install packages from `source` when available.
 * **--prefer-dist:** Install packages from `dist` when available.
@@ -200,7 +200,7 @@ php composer.phar search monolog
 
 You can also search for more than one term by passing multiple arguments.
 
-### Options
+### 选项
 
 * **--only-name (-N):** Search only in name.
 
@@ -241,7 +241,7 @@ specific version.
 php composer.phar show monolog/monolog 1.0.2
 ```
 
-### Options
+### 选项
 
 * **--installed (-i):** List the packages that are installed.
 * **--platform (-p):** List only platform packages (php & extensions).
@@ -263,7 +263,7 @@ symfony/monolog-bridge
 symfony/symfony
 ```
 
-### Options
+### 选项
 
 * **--link-type:** The link types to match on, can be specified multiple
   times.
@@ -278,7 +278,7 @@ You should always run the `validate` command before you commit your
 php composer.phar validate
 ```
 
-### Options
+### 选项
 
 * **--no-check-all:** Wether or not composer do a complete validation.
 
@@ -325,7 +325,7 @@ you may have to run the command with `root` privileges
 sudo composer self-update
 ```
 
-### Options
+### 选项
 
 * **--rollback (-r):** Rollback to the last version you had installed.
 * **--clean-backups:** Delete old backups during an update. This makes the current version of composer the only backup available after the update.
@@ -350,7 +350,7 @@ configuration value.  For settings that can take an array of values (like
 See the [config schema section](04-schema.md#config) for valid configuration
 options.
 
-### Options
+### 选项
 
 * **--global (-g):** Operate on the global config file located at
 `$COMPOSER_HOME/config.json` by default.  Without this option, this command
@@ -401,7 +401,7 @@ existing `composer.json` file to bootstrap a project.
 
 By default the command checks for the packages on packagist.org.
 
-### Options
+### 选项
 
 * **--repository-url:** Provide a custom repository to search for the package,
   which will be used instead of packagist. Can be either an HTTP URL pointing
@@ -433,7 +433,7 @@ time. Using classmaps for everything is less convenient in development, but
 using this option you can still use PSR-0/4 for convenience and classmaps for
 performance.
 
-### Options
+### 选项
 
 * **--optimize (-o):** Convert PSR-0/4 autoloading to classmap to get a faster
   autoloader. This is recommended especially for production, but can take
@@ -470,7 +470,7 @@ excluded/ignored files.
 php composer.phar archive vendor/package 2.0.21 --format=zip
 ```
 
-### Options
+### 选项
 
 * **--format (-f):** Format of the resulting archive: tar or zip (default:
   "tar")
@@ -484,7 +484,7 @@ To get more information about a certain command, just use `help`.
 php composer.phar help install
 ```
 
-## Environment variables
+## 环境变量
 
 You can set a number of environment variables that override certain settings.
 Whenever possible it is recommended to specify these settings in the `config`

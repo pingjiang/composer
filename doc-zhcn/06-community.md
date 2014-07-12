@@ -1,4 +1,4 @@
-# Community
+# 社区
 
 There are many people using composer already, and quite a few of them are
 contributing.

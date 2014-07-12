@@ -1,8 +1,8 @@
-# Libraries
+# 库
 
 This chapter will tell you how to make your library installable through Composer.
 
-## Every project is a package
+## 每一个项目都是一个包
 
 As soon as you have a `composer.json` in a directory, that directory is a
 package. When you add a `require` to a project, you are making a package that
@@ -28,7 +28,7 @@ vendor name. Supplying a vendor name is mandatory.
 username is usually a good bet. While package names are case insensitive, the
 convention is all lowercase and dashes for word separation.
 
-## Platform packages
+## 平台包
 
 Composer has platform packages, which are virtual packages for things that are
 installed on the system but are not actually installable by Composer. This
@@ -53,7 +53,7 @@ includes PHP itself, PHP extensions and some system libraries.
 You can use `composer show --platform` to get a list of your locally available
 platform packages.
 
-## Specifying the version
+## 指定版本号
 
 You need to specify the package's version some way. When you publish your
 package on Packagist, it is able to infer the version from the VCS (git, svn,
@@ -73,7 +73,7 @@ you can just add a `version` field:
 > **Note:** You should avoid specifying the version field explicitly, because
 > for tags the value must match the tag name.
 
-### Tags
+### 标签
 
 For every tag that looks like a version, a package version of that tag will be
 created. It should match 'X.Y.Z' or 'vX.Y.Z', with an optional suffix
@@ -93,7 +93,7 @@ Here are a few examples of valid tag names:
 > in a `require` statement has to be specified without prefix
 > (e.g. tag `v1.0.0` will result in version `1.0.0`). 
 
-### Branches
+### 分支
 
 For every branch, a package development version will be created. If the branch
 name looks like a version, the version will be `{branchname}-dev`. For example
@@ -113,7 +113,7 @@ Here are some examples of version branch names:
 > pulled from its `source`. See the [`install`](03-cli.md#install) command
 > for more details.
 
-### Aliases
+### 别名
 
 It is possible to alias branch names to versions. For example, you could alias
 `dev-master` to `1.0.x-dev`, which would allow you to require `1.0.x-dev` in all
@@ -121,7 +121,7 @@ the packages.
 
 See [Aliases](articles/aliases.md) for more information.
 
-## Lock file
+## 锁文件
 
 For your library you may commit the `composer.lock` file if you want to. This
 can help your team to always test against the same dependency versions.
@@ -131,7 +131,7 @@ on it. It only has an effect on the main project.
 If you do not want to commit the lock file and you are using git, add it to
 the `.gitignore`.
 
-## Publishing to a VCS
+## 发布到VCS
 
 Once you have a vcs repository (version control system, e.g. git) containing a
 `composer.json` file, your library is already composer-installable. In this
@@ -177,7 +177,7 @@ We do this by adding a package repository specification to the blog's
 ```
 
 For more details on how package repositories work and what other types are
-available, see [Repositories](05-repositories.md).
+available, see [仓库](05-repositories.md).
 
 That's all. You can now install the dependencies by running Composer's
 `install` command!
@@ -186,7 +186,7 @@ That's all. You can now install the dependencies by running Composer's
 to your project by specifying the package repository and declaring the
 dependency in the `require` field.
 
-## Publishing to packagist
+## 发布到 packagist仓库
 
 Alright, so now you can publish packages. But specifying the vcs repository
 every time is cumbersome. You don't want to force all your users to do that.
@@ -207,4 +207,4 @@ You simply hit the big "Submit Package" button and sign up. Then you submit
 the URL to your VCS repository, at which point packagist will start crawling
 it. Once it is done, your package will be available to anyone.
 
-&larr; [Basic usage](01-basic-usage.md) |  [Command-line interface](03-cli.md) &rarr;
+&larr; [基本使用方法](01-basic-usage.md) |  [命令行接口](03-cli.md) &rarr;

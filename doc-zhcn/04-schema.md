@@ -28,7 +28,7 @@ root package. The `composer.json` is identical, but the context is different.
 > is the root package. However, if you clone `monolog` from GitHub in order to
 > fix a bug in it, then `monolog` is the root package.
 
-## Properties
+## 属性
 
 ### name
 
@@ -870,4 +870,4 @@ The example will include `/dir/foo/bar/file`, `/foo/bar/baz`, `/file.php`,
 
 Optional.
 
-&larr; [Command-line interface](03-cli.md)  |  [Repositories](05-repositories.md) &rarr;
+&larr; [命令行接口](03-cli.md)  |  [仓库](05-repositories.md) &rarr;

@@ -1,36 +1,30 @@
-# Introduction
+# 简介
 
-Composer is a tool for dependency management in PHP. It allows you to declare
-the dependent libraries your project needs and it will install them in your
-project for you.
+Composer是PHP中用于依赖管理的工具。它能让你定义项目中依赖的库并且将他们安装到项目中。
 
-## Dependency management
+## 依赖管理
 
-it manages them on a per-project basis, installing them in a directory (e.g. `vendor`)
-inside your project. By default it will never install anything globally. Thus,
-it is a dependency manager.
+Composer不是一个包管理器。虽然它处理“包”和库，但是它只能管理单个项目并且安装到你的项目的一个目录下面（比如`vendor`目录）。
+默认情况下它不会安装任何全局的东西。因此，它只是一个依赖管理工具。
 
-This idea is not new and Composer is strongly inspired by node's [npm](http://npmjs.org/)
-and ruby's [bundler](http://gembundler.com/). But there has not been such a tool
-for PHP.
+Composer并不是一个全新的想法，它是受到了node's [npm](http://npmjs.org/)
+and ruby's [bundler](http://gembundler.com/)很深的影响创造出来的。但是之前PHP中是没有这样的工具的。
 
-The problem that Composer solves is this:
+Composer解决的问题如下：
 
-a) You have a project that depends on a number of libraries.
+a) 你有一个项目依赖于一些库。
 
-b) Some of those libraries depend on other libraries.
+b) 这些库中有些又依赖于另外的一些库。
 
-c) You declare the things you depend on.
+c) 你定义你依赖的这些东西。
 
-d) Composer finds out which versions of which packages need to be installed, and
-   installs them (meaning it downloads them into your project).
+d) Composer 找出那些库的哪些版本需要被安装，并且安装他们（意思是安装到你的项目中）。
 
-## Declaring dependencies
 
-Let's say you are creating a project, and you need a library that does logging.
-You decide to use [monolog](https://github.com/Seldaek/monolog). In order to
-add it to your project, all you need to do is create a `composer.json` file
-which describes the project's dependencies.
+## 定义依赖
+
+假设你创建了一个项目，你需要一个logging的库。你决定去使用[monolog](https://github.com/Seldaek/monolog).
+为了在你的项目中使用它，你仅仅需要创建一个`composer.json`文件并且描述项目的依赖即可。
 
 ```json
 {
@@ -40,74 +34,62 @@ which describes the project's dependencies.
 }
 ```
 
-We are simply stating that our project requires some `monolog/monolog` package,
-any version beginning with `1.2`.
+我们简单的说明了我们的项目依赖于一个版本始于`1.2`的`monolog/monolog`包。
 
-## System Requirements
+## 系统需求
 
-Composer requires PHP 5.3.2+ to run. A few sensitive php settings and compile
-flags are also required, but the installer will warn you about any
-incompatibilities.
+Composer需要到5.3.2以上的PHP上运行。一些关键的PHP设置和编译器选项是必须得，但是安装的时候将会提醒你任何不兼容的地方。
 
-To install packages from sources instead of simple zip archives, you will need
-git, svn or hg depending on how the package is version-controlled.
+从源码安装而不是简单的zip包，你将需要git，svn和hg等工具。这取决于包得版本控制情况。
 
-Composer is multi-platform and we strive to make it run equally well on Windows,
-Linux and OSX.
+Composer是一个跨平台的工具，我们力争让它能够在Windows，Linux和OSX上都很好的工作。
 
-## Installation - *nix
+## 安装到 - *nix
 
-### Downloading the Composer Executable
+### 安装可执行的Composer
 
-#### Locally
+#### 本地安装
 
-To actually get Composer, we need to do two things. The first one is installing
-Composer (again, this means downloading it into your project):
+我们需要做两件事情来获取Composer。第一件事就是安装Composer（就是下载到你的项目中）：
 
 ```sh
 curl -sS https://getcomposer.org/installer | php
 ```
 
-> **Note:** If the above fails for some reason, you can download the installer
-> with `php` instead:
+> **注意** 如果因为某些原因是啊比了，你可以使用PHP下载安装文件：
 
 ```sh
 php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
-This will just check a few PHP settings and then download `composer.phar` to
-your working directory. This file is the Composer binary. It is a PHAR (PHP
-archive), which is an archive format for PHP which can be run on the command
-line, amongst other things.
+这将检查一些PHP的设置，并且下载`composer.phar`到当前工作目录。这个文件就是Composer文件。它是一个PHAR（PHP Archive）文件，
+这种存档格式能够让PHP在命令行和其他一些东西执行。
 
-You can install Composer to a specific directory by using the `--install-dir`
-option and providing a target directory (it can be an absolute or relative path):
+你可以使用`--install-dir`选项提供一个目的地址（可以说绝对路径也可以是相对路径）把Composer安装到指定目录中：
 
 ```sh
 curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
 ```
 
-#### Globally
+#### 全局安装
 
-You can place this file anywhere you wish. If you put it in your `PATH`,
-you can access it globally. On unixy systems you can even make it
-executable and invoke it without `php`.
+你可以把这个文件放到任何你想要的位置。如果你把它放到`PATH`路径里面，你可以全局访问。在unixy系统你甚至可以增加可执行的权限后，不需要输入php即可执行。
 
-You can run these commands to easily access `composer` from anywhere on your system:
+你可以执行下面这个命令轻松的再系统的任何位置访问`composer`：
 
 ```sh
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 ```
 
-> **Note:** If the above fails due to permissions, run the `mv` line
-> again with sudo.
+> **注意：** 如果上面的命令执行失败了，请使用sudo管理员权限再次执行 `mv` 行的命令。
 
-Then, just run `composer` in order to run Composer instead of `php composer.phar`.
+现在，不用 `php composer.phar`,可以仅仅执行`composer`即可。
 
-#### Globally (on OSX via homebrew)
 
-Composer is part of the homebrew-php project.
+#### 全局 (在OSX上通过 homebrew安装)
+
+Composer是homebrew-php项目的一部分。
 
 ```sh
 brew update
@@ -118,75 +100,64 @@ brew install php55-intl
 brew install homebrew/php/composer
 ```
 
-## Installation - Windows
+## 安装到Windows上
 
-### Using the Installer
+### 使用安装文件
 
-This is the easiest way to get Composer set up on your machine.
+这是Windows上安装Composer的最简单的方式。
 
-Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe),
-it will install the latest Composer version and set up your PATH so that you can
-just call `composer` from any directory in your command line.
+它将自动将最新版本的Composer安装到你的PATH环境变量中，你可以在命令行的任何目录调用`composer`。
 
-### Manual Installation
+### 手动安装
 
-Change to a directory on your `PATH` and run the install snippet to download
-composer.phar:
+进入到一个在`PATH`环境变量的目录，并且执行安装脚本下载composer.phar：
 
 ```sh
 C:\Users\username>cd C:\bin
 C:\bin>php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
-> **Note:** If the above fails due to readfile, use the `http` url or enable php_openssl.dll in php.ini
+> **注意：** 如果因为readfile失败，请使用`http`的url 或在 php.ini开启php_openssl.dll。
 
-Create a new `composer.bat` file alongside `composer.phar`:
+在`composer.phar`文件目录下面创建一个`composer.bat`文件：
 
 ```sh
 C:\bin>echo @php "%~dp0composer.phar" %*>composer.bat
 ```
 
-Close your current terminal. Test usage with a new terminal:
+关闭你的当前终端。在新终端里面测试：
 
 ```sh
 C:\Users\username>composer -V
 Composer version 27d8904
 ```
 
-## Using Composer
+## 使用 Composer
 
-We will now use Composer to install the dependencies of the project. If you
-don't have a `composer.json` file in the current directory please skip to the
-[Basic Usage](01-basic-usage.md) chapter.
+我们将使用Composer给项目安装依赖。如果你没有 `composer.json` 文件在当前目录，请跳过这个 [基本使用方法](01-basic-usage.md) 章节。
 
-To resolve and download dependencies, run the `install` command:
+运行 `install` 命令解析和下载依赖。
 
 ```sh
 php composer.phar install
 ```
 
-If you did a global install and do not have the phar in that directory
-run this instead:
+如果你全局的安装了Composer并且当前目录下面没有这个phar，你可以执行如下命令：
 
 ```sh
 composer install
 ```
 
-Following the [example above](#declaring-dependencies), this will download
-monolog into the `vendor/monolog/monolog` directory.
+[上面的例子](#declaring-dependencies) 将下载依赖到 `vendor/monolog/monolog` 目录。
 
-## Autoloading
+## 自动加载
 
-Besides downloading the library, Composer also prepares an autoload file that's
-capable of autoloading all of the classes in any of the libraries that it
-downloads. To use it, just add the following line to your code's bootstrap
-process:
+除了自动下载库，Composer也准备了一个自动加载的文件，能够自动加载它下载的任何库的所有的类。在你的代码加入下面一行：
 
 ```php
 require 'vendor/autoload.php';
 ```
 
-Woah! Now start using monolog! To keep learning more about Composer, keep
-reading the "Basic Usage" chapter.
+哇！现在开始使用monolog！继续学习更多Composer的内容，请继续阅读 "基本使用方法" 章节。
 
-[Basic Usage](01-basic-usage.md) &rarr;
+[基本使用方法](01-basic-usage.md) &rarr;
